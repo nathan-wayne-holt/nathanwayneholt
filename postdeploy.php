@@ -8,5 +8,6 @@ print_r($_POST, true);
 		shell_exec('cd ../ && git pull');
 	} else {
 		echo "No payload was sent.";
+		print_r($_POST, true);
 	}
 ?>
