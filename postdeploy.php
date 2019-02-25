@@ -1,4 +1,5 @@
 <?php
+	print_r($_POST);
 	$post_data = file_get_contents('php://input');
 	
 	if (!empty($post_data)) {
