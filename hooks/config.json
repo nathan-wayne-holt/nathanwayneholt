@@ -1,0 +1,14 @@
+{
+    "email": {
+        "from": "github-hook@gmail.com",
+        "to": "nathanwayneholt@gmail.com"
+    },
+    "endpoints": [
+        {
+            "repo": "user/repository",
+            "branch": "master",
+            "action": "something has been changed on the server",
+            "run": "git_pull_script.sh"
+        }
+    ]
+}
