@@ -1,18 +1,23 @@
 <?php
 	$secret = "SecretWebhookKey18593";
-	$hashed_secret = sha1($secret);
-	$post_data = file_get_contents('php://input');
 	
-	if (!empty($post_data)) {
-		echo "We're here!";
-		shell_exec('git pull');
-		$hashed_received = $_HEADER['X-Hub-Signature'];
-		if ($hashed_received == $hashed_secret) {
-			echo "SECRETS MATCH";
-		} else{
-			echo "do not match";
-		}
-		echo "pulled";
-		//mail('nathanwayneholt@gmail.com', 'Auto-Deploy Activated', 'nathanwayneholt.com has auto-updated due to the detection that the remote repo has been updated.')
+	if (!isset($_SERVER['HTTP_X_HUB_SIGNATURE'])) {
+		throw new Exception('X-Hub-Signature missing.')
+	} elseif (!extension_loaded('hash')) {
+		throw new Exception('Hash extension not loaded.')
 	}
+	
+	list($algorithm, $hash) = explode('=', $_SERVER['HTTP_X_HUB_SIGNATURE'], 2) + array('', '');
+	
+	$rawData = file_get_contents('php://input')
+	
+	if ($hash !== hash_hmac($algorithm, $rawData, $secret)) {
+		throw new Exception('Secret does not match hash.')
+	}
+	
+	#Successfully passed secret into the header. Now run git pull.
+	
+	$output = shell_exec('git pull');
+	echo $output;
+	return $output;
 ?>
