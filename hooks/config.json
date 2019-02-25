@@ -5,7 +5,7 @@
     },
     "endpoints": [
         {
-            "repo": "user/repository",
+            "repo": "nathan-wayne-holt/nathanwayneholt",
             "branch": "master",
             "action": "something has been changed on the server",
             "run": "git_pull_script.sh"
