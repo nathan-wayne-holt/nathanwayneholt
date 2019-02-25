@@ -5,7 +5,7 @@
 	
 	if (!empty($post_data)) {
 		echo "We're here!";
-		shell_exec('cd ../ && git pull');
+		shell_exec('git pull');
 		$hashed_received = $_HEADER['X-Hub-Signature'];
 		if ($hashed_received == $hashed_secret) {
 			echo "SECRETS MATCH";
