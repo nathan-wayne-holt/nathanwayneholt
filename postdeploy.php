@@ -20,8 +20,8 @@
 	}
 	
 	#Successfully passed secret into the header. Now run git pull.
-	echo shell_exec('git status');	
-	echo shell_exec('git pull');
+//	echo shell_exec('git status');	
+	echo shell_exec('sudo git pull');
 	
 	echo "successfully pulled?";
 ?>
