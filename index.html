@@ -56,6 +56,18 @@
 			display: block;
 			clear: both;
 		}
+		// responsive design to remove Fibonacci spiral image
+		@media (max-width: 700px) {
+			img#fibonacci_spiral {
+				display: none;
+			}
+			#headerright {
+				display: none;
+			}
+			# headerleft {
+				width: 100%;
+			}
+		}
 	</style>
   </head>
   <body>
@@ -72,7 +84,7 @@
 					<i><a href="resume.pdf">Resume</a></i>
 				</div>
 				<div id="headerright">
-					<img src="fibonacci.png" alt="Fibonacci Spiral" />
+					<img src="fibonacci.png" alt="Fibonacci Spiral" id="fibonacci_spiral" />
 				</div>
 			</div>
 			<h1>
