@@ -1,0 +1,25 @@
+{
+  "name": "nathanwayneholt-website",
+  "version": "1.0.0",
+  "description": "Nathan's website",
+  "main": "postcss.config.js",
+  "dependencies": {
+    "autoprefixer": "^10.2.1",
+    "postcss": "^8.2.4",
+    "tailwindcss": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathan-wayne-holt/nathanwayneholt.git"
+  },
+  "author": "Nathan Holt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathan-wayne-holt/nathanwayneholt/issues"
+  },
+  "homepage": "https://github.com/nathan-wayne-holt/nathanwayneholt#readme"
+}
