@@ -1,132 +1,341 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Nathan Holt's Website</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+<html lang="en">
 
-	<style type="text/css">
+<head>
+	<title>Nathan Holt</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link
+		href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+		rel="stylesheet">
+	<style>
 		body {
-			width: 100%;
-			background-color: #dcdcdc;
+			font-family: 'DM Sans', sans-serif;
 		}
-		#container {
-			width: 80%;
-			margin: 0 auto;
-			margin-top: 5%;
-			background-color: #ffffff;
-			border-style: double;
+
+		.display-font {
+			font-family: 'DM Serif Display', serif;
 		}
-		#textdiv {
-			margin-left: 5%;
-			margin-right: 5%;
+
+		.hero-name {
+			font-size: clamp(3.5rem, 10vw, 8rem);
+			line-height: 0.95;
+			letter-spacing: -0.03em;
 		}
-		#headerdiv {
-			display: table;
-			margin-top: 5%;
-			width: 100%;
-			clear: both;
-			height: 100%;
+
+		.tag-pill {
+			transition: background 0.2s, color 0.2s;
 		}
-		#headerleft {
-			display: table-cell;
-			width: 60%;
-			vertical-align: middle;
+
+		.tag-pill:hover {
+			background: #111827;
+			color: #f9fafb;
 		}
-		#headerright{
-			display:table-cell;
-			width: 40%;
-			text-align: right;
-			//float: right;
-			clear: right;
-			vertical-align: middle;
-		}
-		img {
-			max-width: 100%;
-			max-height: 100%;
+
+		.paper-link {
 			position: relative;
+			display: inline;
 		}
-		#name {
-			font-family: "Trebuchet MS", Helvetica, sans-serif;
-			font-size: 4em;
-		}
-		#headerdiv:after {
+
+		.paper-link::after {
 			content: '';
-			display: block;
-			clear: both;
+			position: absolute;
+			left: 0;
+			bottom: -1px;
+			width: 0;
+			height: 1px;
+			background: #111827;
+			transition: width 0.3s ease;
 		}
-		@media screen and (max-width: 700px) { 
-			#headerright {
-				display: none;
+
+		.paper-link:hover::after {
+			width: 100%;
+		}
+
+		.fade-in {
+			opacity: 0;
+			transform: translateY(18px);
+			animation: fadeUp 0.7s ease forwards;
+		}
+
+		@keyframes fadeUp {
+			to {
+				opacity: 1;
+				transform: translateY(0);
 			}
-			#headerleft {
-				width: 100%;
-			}
-		}	
+		}
+
+		.delay-1 {
+			animation-delay: 0.1s;
+		}
+
+		.delay-2 {
+			animation-delay: 0.22s;
+		}
+
+		.delay-3 {
+			animation-delay: 0.34s;
+		}
+
+		.delay-4 {
+			animation-delay: 0.46s;
+		}
+
+		.section-rule {
+			border: none;
+			border-top: 1px solid #e5e7eb;
+		}
 	</style>
-  </head>
-  <body>
-	<div id="container">
-		<div id="textdiv">
-			<div id="headerdiv">
-				<div id="headerleft" class="flex-container">
-					<div id="name">
-						Nathan Holt
-					</div>
-					<i>Alma Mater</i>: Rochester Institute of Technology <br />
-					<i>Interests</i>: Dynamical Systems, Image Processing, Machine Learning, Data Assimilation, Scientific Computing <br />
-					<i>Email:</i> <a href="mailto:nathanwayneholt@gmail.com">nathanwayneholt@gmail.com</a> <br />
-					<i><a href="resume.pdf">Resume</a></i>
+</head>
+
+<body class="bg-stone-50 text-gray-900 min-h-screen">
+
+	<div class="max-w-5xl mx-auto px-6 md:px-16 pt-20 pb-32">
+
+		<!-- HERO -->
+		<header class="mb-20">
+			<div class="fade-in delay-1">
+				<h1 class="display-font hero-name text-gray-950 mb-4">
+					Nathan<br>Holt
+				</h1>
+				<p class="text-xs font-medium tracking-[0.2em] uppercase text-gray-400 mb-8">Mathematician
+					&nbsp;&middot;&nbsp; Software Engineer &nbsp;&middot;&nbsp; Systems Engineer</p>
+			</div>
+
+			<div class="fade-in delay-2 mb-8">
+				<p class="text-xs font-medium tracking-[0.15em] uppercase text-gray-400 mb-1.5">Areas of Interest</p>
+				<p class="text-sm text-gray-500">Dynamical Systems, Image Processing, Machine Learning, Data
+					Assimilation, Scientific Computing, GEOINT, Human Mobility, Human Behavior, Modeling and Simulation
+				</p>
+			</div>
+
+			<div class="fade-in delay-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500">
+				<span class="flex items-center gap-1.5">
+					<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M12 14l9-5-9-5-9 5 9 5z" />
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+					</svg>
+					Rochester Institute of Technology
+				</span>
+				<a href="mailto:nathanwayneholt@gmail.com"
+					class="flex items-center gap-1.5 hover:text-gray-900 transition-colors">
+					<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+					</svg>
+					nathanwayneholt@gmail.com
+				</a>
+				<a href="resume.pdf"
+					class="flex items-center gap-1.5 font-medium text-gray-900 hover:text-gray-500 transition-colors">
+					<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+					</svg>
+					Download Résumé ↗
+				</a>
+			</div>
+		</header>
+
+		<!-- WORK EXPERIENCE -->
+		<section class="fade-in delay-4 mb-16">
+			<hr class="section-rule mb-8">
+			<div class="flex items-baseline justify-between mb-8">
+				<h2 class="display-font text-2xl text-gray-950">Work Experience</h2>
+			</div>
+
+			<div class="flex gap-5">
+				<div class="flex flex-col items-center">
+					<div class="w-2 h-2 rounded-full bg-gray-900 mt-1.5 shrink-0"></div>
+					<div class="w-px flex-1 bg-gray-200 mt-2"></div>
 				</div>
-				<div id="headerright">
-					<img src="fibonacci.png" alt="Fibonacci Spiral" id="fibonacci_spiral" />
+				<div class="pb-2 w-full">
+					<p class="text-xs font-medium tracking-[0.15em] uppercase text-gray-400 mb-1.5">L3Harris
+						Technologies</p>
+					<p class="text-sm text-gray-400">Technical Lead &middot; Chief Systems Engineer &middot; Software
+						Engineer &middot; Image Science Engineer</p>
 				</div>
 			</div>
-			<h1>
-				Published Papers
-			</h1>
-				
-			<ol>
-				<li>
-					<a href="effectsofmodelerror.pdf">Effects of Model Error on Cardiac Electrical Wave State Reconstruction Using Data
-Assimilation</a>, published by the American Institute of Physics in the September, 2017 issue of <i>Chaos</i>.
+		</section>
+
+		<!-- PUBLISHED PAPERS -->
+		<section class="fade-in delay-4 mb-16">
+			<hr class="section-rule mb-8">
+			<div class="flex items-baseline justify-between mb-8">
+				<h2 class="display-font text-2xl text-gray-950">Published Papers</h2>
+				<span id="published-count" class="text-xs text-gray-400 font-medium tracking-widest uppercase"></span>
+			</div>
+
+			<ol id="published-list" class="space-y-8">
+				<li class="group flex gap-5">
+					<span
+						class="display-font text-3xl text-gray-200 group-hover:text-gray-300 transition-colors select-none mt-0.5 leading-none">01</span>
+					<div>
+						<a href="https://doi.org/10.1145/3672557"
+							class="paper-link display-font text-lg text-gray-900 leading-snug hover:text-gray-600 transition-colors">
+							In Silico Human Mobility Data Science: Leveraging Massive Simulated Mobility Data
+						</a>
+						<p class="text-sm text-gray-400 mt-1.5">ACM Transactions on Spatial Algorithms and Systems,
+							June 2024</p>
+					</div>
 				</li>
-				<li>
-					<a href="http://www.siam.org/meetings/cse17/CSE17%20abstract_book%20for%20web.pdf#page=64">Using Data Assimilation to Reconstruct Cardiac
-		Electrical Dynamics</a>, presented at the SIAM Conference on Computational Science and Engineering, Feb. 27 - Mar. 3, 2017.
+
+				<li class="group flex gap-5">
+					<span
+						class="display-font text-3xl text-gray-200 group-hover:text-gray-300 transition-colors select-none mt-0.5 leading-none">02</span>
+					<div>
+						<a href="thesis.pdf"
+							class="paper-link display-font text-lg text-gray-900 leading-snug hover:text-gray-600 transition-colors">
+							Parameter Estimation of a Cardiac Model Using the Local Ensemble Transform Kalman Filter
+						</a>
+						<p class="text-sm text-gray-400 mt-1.5">RIT Digital Institutional Repository,
+							May 2019</p>
+					</div>
 				</li>
-				
-				<li>
-					<a href="Cherry2017CMBE17Proceedings.pdf">Data Assimilation for Cardiac Electrical Dynamics</a>, presented at the International Conferences on Computational and Mathematical Biomedical Engineering, Apr. 10-12, 2017.
+
+				<li class="group flex gap-5">
+					<span
+						class="display-font text-3xl text-gray-200 group-hover:text-gray-300 transition-colors select-none mt-0.5 leading-none">03</span>
+					<div>
+						<a href="effectsofmodelerror.pdf"
+							class="paper-link display-font text-lg text-gray-900 leading-snug hover:text-gray-600 transition-colors">
+							Effects of Model Error on Cardiac Electrical Wave State Reconstruction Using Data
+							Assimilation
+						</a>
+						<p class="text-sm text-gray-400 mt-1.5">American Institute of Physics &mdash; <em>Chaos</em>,
+							September 2017</p>
+					</div>
+				</li>
+
+				<li class="group flex gap-5">
+					<span
+						class="display-font text-3xl text-gray-200 group-hover:text-gray-300 transition-colors select-none mt-0.5 leading-none">04</span>
+					<div>
+						<a href="Cherry2017CMBE17Proceedings.pdf"
+							class="paper-link display-font text-lg text-gray-900 leading-snug hover:text-gray-600 transition-colors">
+							Data Assimilation for Cardiac Electrical Dynamics
+						</a>
+						<p class="text-sm text-gray-400 mt-1.5">International Conferences on Computational and
+							Mathematical Biomedical Engineering &mdash; April 2017</p>
+					</div>
+				</li>
+
+				<li class="group flex gap-5">
+					<span
+						class="display-font text-3xl text-gray-200 group-hover:text-gray-300 transition-colors select-none mt-0.5 leading-none">05</span>
+					<div>
+						<a href="http://www.siam.org/meetings/cse17/CSE17%20abstract_book%20for%20web.pdf#page=64"
+							class="paper-link display-font text-lg text-gray-900 leading-snug hover:text-gray-600 transition-colors">
+							Using Data Assimilation to Reconstruct Cardiac Electrical Dynamics
+						</a>
+						<p class="text-sm text-gray-400 mt-1.5">SIAM Conference on Computational Science and Engineering
+							&mdash; Feb&ndash;Mar 2017</p>
+					</div>
 				</li>
 			</ol>
-				
-			<h1>
-				Academic Efforts
-			</h1>
-				
-			<ol>
-				<li>
-					<a href="mathematicalmodeling/MafiaProject.pdf">A Probabilistic Model for the Mafia Party Game</a>, a project paper for my graduate Mathematical Modeling 2 course.
+		</section>
+
+		<!-- ACADEMIC EFFORTS -->
+		<section class="fade-in delay-4 mb-16">
+			<hr class="section-rule mb-8">
+			<div class="flex items-baseline justify-between mb-8">
+				<h2 class="display-font text-2xl text-gray-950">Academic Efforts</h2>
+				<span id="academic-count" class="text-xs text-gray-400 font-medium tracking-widest uppercase"></span>
+			</div>
+
+			<ol id="academic-list" class="space-y-8">
+				<li class="group flex gap-5">
+					<span
+						class="display-font text-3xl text-gray-200 group-hover:text-gray-300 transition-colors select-none mt-0.5 leading-none">01</span>
+					<div>
+						<a href="mathematicalmodeling/MafiaProject.pdf"
+							class="paper-link display-font text-lg text-gray-900 leading-snug hover:text-gray-600 transition-colors">
+							A Probabilistic Model for the Mafia Party Game
+						</a>
+						<p class="text-sm text-gray-400 mt-1.5">Graduate Mathematical Modeling 2</p>
+					</div>
 				</li>
-				<li>
-					<a href="crypto/finalpaper.html">Chaotic Cryptography: Applications of Chaos Theory to Cryptography</a>, my final research paper for my graduate Cryptography course.
+
+				<li class="group flex gap-5">
+					<span
+						class="display-font text-3xl text-gray-200 group-hover:text-gray-300 transition-colors select-none mt-0.5 leading-none">02</span>
+					<div>
+						<a href="crypto/finalpaper.html"
+							class="paper-link display-font text-lg text-gray-900 leading-snug hover:text-gray-600 transition-colors">
+							Chaotic Cryptography: Applications of Chaos Theory to Cryptography
+						</a>
+						<p class="text-sm text-gray-400 mt-1.5">Graduate Cryptography</p>
+					</div>
 				</li>
-				<li>
-					<a href="mathematicalmodeling/ChicagoCrimesReport.pdf">Analyzing Crime in Chicago Through Machine Learning</a>, my final project paper for my graduate Mathematical Modeling course.
+
+				<li class="group flex gap-5">
+					<span
+						class="display-font text-3xl text-gray-200 group-hover:text-gray-300 transition-colors select-none mt-0.5 leading-none">03</span>
+					<div>
+						<a href="mathematicalmodeling/ChicagoCrimesReport.pdf"
+							class="paper-link display-font text-lg text-gray-900 leading-snug hover:text-gray-600 transition-colors">
+							Analyzing Crime in Chicago Through Machine Learning
+						</a>
+						<p class="text-sm text-gray-400 mt-1.5">Graduate Mathematical Modeling</p>
+					</div>
 				</li>
-				<li>
-					<a href="mathematicalmodeling/Project3.pdf">How Likely Are You to Date Your Half-Sibling?</a>, a group project for my graduate Mathematical Modeling course.
+
+				<li class="group flex gap-5">
+					<span
+						class="display-font text-3xl text-gray-200 group-hover:text-gray-300 transition-colors select-none mt-0.5 leading-none">04</span>
+					<div>
+						<a href="mathematicalmodeling/Project3.pdf"
+							class="paper-link display-font text-lg text-gray-900 leading-snug hover:text-gray-600 transition-colors">
+							How Likely Are You to Date Your Half-Sibling?
+						</a>
+						<p class="text-sm text-gray-400 mt-1.5">Graduate Mathematical Modeling &mdash; Group Project</p>
+					</div>
 				</li>
-				<li>
-					<a href="mathematicalmodeling/MTH 622 Group Project 1.pdf">Should RIT Consider Increasing Undergraduate Math Course Class Sizes?</a>, a group project for my graduate Mathematical Modeling course.
+
+				<li class="group flex gap-5">
+					<span
+						class="display-font text-3xl text-gray-200 group-hover:text-gray-300 transition-colors select-none mt-0.5 leading-none">05</span>
+					<div>
+						<a href="mathematicalmodeling/MTH 622 Group Project 1.pdf"
+							class="paper-link display-font text-lg text-gray-900 leading-snug hover:text-gray-600 transition-colors">
+							Should RIT Consider Increasing Undergraduate Math Course Class Sizes?
+						</a>
+						<p class="text-sm text-gray-400 mt-1.5">Graduate Mathematical Modeling &mdash; Group Project</p>
+					</div>
 				</li>
-				<li>
-					<a href="mathematicalmodeling/Group project 2.pdf">Inadequacy of Current New Mexico Hunting</a>, a group project for my graduate Mathematical Modeling course.
+
+				<li class="group flex gap-5">
+					<span
+						class="display-font text-3xl text-gray-200 group-hover:text-gray-300 transition-colors select-none mt-0.5 leading-none">06</span>
+					<div>
+						<a href="mathematicalmodeling/Group project 2.pdf"
+							class="paper-link display-font text-lg text-gray-900 leading-snug hover:text-gray-600 transition-colors">
+							Inadequacy of Current New Mexico Hunting
+						</a>
+						<p class="text-sm text-gray-400 mt-1.5">Graduate Mathematical Modeling &mdash; Group Project</p>
+					</div>
 				</li>
 			</ol>
-		</div>
-	</div>
-  </body>
+		</section>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const sections = [
+					{ listId: 'published-list', countId: 'published-count' },
+					{ listId: 'academic-list', countId: 'academic-count' },
+				];
+
+				sections.forEach(({ listId, countId }) => {
+					const list = document.getElementById(listId);
+					const badge = document.getElementById(countId);
+					if (!list || !badge) return;
+					const count = list.querySelectorAll(':scope > li').length;
+					badge.textContent = `${count} ${count === 1 ? 'work' : 'works'}`;
+				});
+			});
+		</script>
+</body>
+
 </html>
